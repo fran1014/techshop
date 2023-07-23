@@ -38,31 +38,31 @@ const ProductScreen = () => {
         </Col>
         <Col md={4}>
           <ListGroup variant="flush">
-            <ListGroup.Item>
+            <ListGroupItem>
               <h3> {product.name} </h3>
-            </ListGroup.Item>
-            <ListGroup.Item>
+            </ListGroupItem>
+            <ListGroupItem>
               <Rating
                 value={product.rating}
                 text={`${product.numReviews}reviews`}
               />
-            </ListGroup.Item>
-            <ListGroup.Item>Price: ${product.price} </ListGroup.Item>
-            <ListGroup.Item>Description: ${product.description}</ListGroup.Item>
+            </ListGroupItem>
+            <ListGroupItem>Price: ${product.price} </ListGroupItem>
+            <ListGroupItem>Description: ${product.description}</ListGroupItem>
           </ListGroup>
         </Col>
         <Col md={3}>
           <Card>
             <ListGroup variant="flush">
-              <ListGroup.Item>
+              <ListGroupItem>
                 <Row>
                   <Col>Price:</Col>
                   <Col>
                     <strong>${product.price}</strong>
                   </Col>
                 </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </ListGroupItem>
+              <ListGroupItem>
                 <Row>
                   <Col>Status:</Col>
                   <Col>
@@ -71,8 +71,8 @@ const ProductScreen = () => {
                     </strong>
                   </Col>
                 </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </ListGroupItem>
+              <ListGroupItem>
                 <Button
                   className="btn-block"
                   type="button"
@@ -80,7 +80,7 @@ const ProductScreen = () => {
                 >
                   Add to Cart{" "}
                 </Button>
-              </ListGroup.Item>
+              </ListGroupItem>
             </ListGroup>
           </Card>
         </Col>
