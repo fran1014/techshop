@@ -67,6 +67,14 @@ const PlaceOrderScreen = () => {
                             rounded
                           />
                         </Col>
+                        <Col>
+                          <Link to={`/products/${item.product}`}>
+                            {item.name}
+                          </Link>
+                        </Col>
+                        <Col md={4}>
+                          {item.qty} x ${item.price}= ${item.qty * item.price}
+                        </Col>
                       </Row>
                     </ListGroupItem>
                   ))}
@@ -75,7 +83,39 @@ const PlaceOrderScreen = () => {
             </ListGroupItem>
           </ListGroup>
         </Col>
-        <Col md={4}>Column</Col>
+        <Col md={4}>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroupItem>
+                <h2>Order Sumary </h2>
+              </ListGroupItem>
+              <ListGroupItem>
+                <Row>
+                  <Col>Items:</Col>
+                  <Col>${cart.itemsPrice}</Col>
+                </Row>
+              </ListGroupItem>
+              <ListGroupItem>
+                <Row>
+                  <Col>Shipping:</Col>
+                  <Col>${cart.shippingPrice}</Col>
+                </Row>
+              </ListGroupItem>
+              <ListGroupItem>
+                <Row>
+                  <Col>Tax:</Col>
+                  <Col>${cart.taxPrice}</Col>
+                </Row>
+              </ListGroupItem>
+              <ListGroupItem>
+                <Row>
+                  <Col>Total:</Col>
+                  <Col>${cart.totalPrice}</Col>
+                </Row>
+              </ListGroupItem>
+            </ListGroup>
+          </Card>
+        </Col>
       </Row>
     </>
   );
