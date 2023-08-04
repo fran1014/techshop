@@ -44,9 +44,9 @@ const PlaceOrderScreen = () => {
         totalPrice: cart.totalPrice,
       }).unwrap();
       dispatch(clearCartItems());
-      navigate(`/order/${res._id}`);
+      navigate(`/order/${res.product}`);
     } catch (error) {
-      toast.error(error);
+      toast.error('An error occurred while placing the order.');
     }
   };
 
@@ -73,7 +73,7 @@ const PlaceOrderScreen = () => {
 
             <ListGroupItem>
               <h2>Order Items</h2>
-              {cart.cartItems.length === 0 ? (
+              {cart.cartItems?.length === 0 ? (
                 <Message>Your cart is empty</Message>
               ) : (
                 <ListGroup variant="flush">
@@ -89,9 +89,7 @@ const PlaceOrderScreen = () => {
                           />
                         </Col>
                         <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
+                          <Link to={`/product/${item._id}`}>{item.name}</Link>
                         </Col>
                         <Col md={4}>
                           {item.qty} x ${item.price}= ${item.qty * item.price}
@@ -136,7 +134,7 @@ const PlaceOrderScreen = () => {
               </ListGroupItem>
 
               <ListGroupItem>
-                {error && <Message variant="danger"> {error} </Message>}
+                {error?.data?.message ? error?.data?.message : error?.message}
               </ListGroupItem>
               <ListGroupItem>
                 <Button
